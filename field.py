@@ -1,14 +1,13 @@
 import pygame
 from robot import robot
 from path import path
-from node import node
 
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
-r1 = robot(100, 100, 0, 1)
+r1 = robot(100, 100, 0, 2)
 pathing = True
 moving = False
 drawPath = False
@@ -87,7 +86,12 @@ while running:
                     r1.y = p1.path[0][1]
 
             if aStar:
-                pass
+                text = font.render('Select a Start Point', True, "white")
+                textRect = text.get_rect()
+                textRect.center = (640, 50)
+                screen.blit(text, textRect)
+
+                
 
         if (moving):
             for tuple in obstacles:
